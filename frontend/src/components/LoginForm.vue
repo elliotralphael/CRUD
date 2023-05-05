@@ -5,17 +5,19 @@ export default {
   data() {
     return {
       auth: { 
-        email: "test@test.com", 
-        password: "password" 
+        email: "johnnyboi@gmail.com", 
+        password: "asdasd" 
       },
     };
   },
   methods: {
-    login() {
+    login(e) {
+      e.preventDefault();
+      console.log("HERERERER")
       const that = this
-      axios.post("http://localhost:5000/login", this.auth)
+      axios.post("http://ec2-52-90-39-231.compute-1.amazonaws.com:5000/login", this.auth)
       .then(function (response) {
-        if (response.status === 200){
+        if (response.data){
           const login_data = response.data
           console.log(login_data)
           // update store
@@ -35,12 +37,12 @@ export default {
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <form :action="login" method="POST" v-on:submit.prevent="console.log(form)">
+    <form method="POST" >
       <label for="fname">Email:</label><br>
       <input type="text" id="fname" name="fname" v-model="auth.email"><br>
       <label for="lname">Password:</label><br>
       <input type="text" id="lname" name="lname" v-model="auth.password"><br><br>
-      <input type="submit" value="Submit" >
+      <button @click="login" value="Submit" >Log In</button>
     </form> 
   </div>
 </template>

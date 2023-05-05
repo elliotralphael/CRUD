@@ -59,9 +59,8 @@ async function addNewUser() {
     const doc = {
       first_name: "test",
       last_name: "hehe",
-      username: "hhh",
-      email: "haha@haha.com",
-      password_hash: "123",
+      email: "johnnyboi@gmail.com",
+      password_hash: "asdasd",
       mobile: 88888888,
       images: {
         dp: {
@@ -186,7 +185,7 @@ app.post('/login', jsonParser, async function(req, res, next) {
       if (login_user){
 
         console.log(typeof (login_user),login_user)
-        res.send(token)
+        res.status(200).send(login_user)
       }else{
         res.send(null)
       }
