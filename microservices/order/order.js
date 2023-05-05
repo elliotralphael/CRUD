@@ -243,13 +243,13 @@ async function updateOrderStatus(update_data) {
 
 // Status: TESTED
 // GET order data
-app.get('/order/:id', function(req, res, next) {
+app.get('/order/:id', async function(req, res, next) {
   const order_id = req.params.id
   if (order_id){
     console.log("Order ID: " + order_id)
-    var order_data = searchOrder(order_id).catch(console.dir);
+    var order_data = await searchOrder(order_id).catch(console.dir);
     if (order_data){
-      res.send(order_data)
+      res.status(200).send(order_data)
     }else{
       res.status(404).send('No such order?')
       res.send(false)
