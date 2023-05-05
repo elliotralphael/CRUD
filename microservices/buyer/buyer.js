@@ -90,7 +90,7 @@ async function addNewUser() {
     
   }finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+//     await client.close();
   }
 }
 
@@ -114,7 +114,7 @@ async function editUser(user_update_data) {
     console.log(`A document was inserted with the _id: ${result.insertedId}`);
   }finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+//     await client.close();
   }
 }
 
@@ -134,7 +134,7 @@ async function deleteUser(user_id) {
 
   }finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+//     await client.close();
   }
 }
 
