@@ -1,5 +1,7 @@
 <script >
 import HomeView from "./views/HomeView.vue";
+
+
 export default{
   components:{
     HomeView
@@ -18,7 +20,7 @@ export default{
     </div>
   </header> -->
 
-  <HomeView />
+  <router-view />
 </template>
 
 <style scoped>
